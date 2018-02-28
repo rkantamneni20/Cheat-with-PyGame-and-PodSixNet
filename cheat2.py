@@ -35,7 +35,7 @@ pygame.mixer.music.load('background.wav')
 
 iconcard = pygame.image.load('app.png')
 pygame.display.set_icon(iconcard)
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.play(-1)
 class Listener(ConnectionListener):
 	# init the player
 	def __init__(self, host, port):

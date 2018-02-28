@@ -132,7 +132,6 @@ class MyServer(Server):
 			self.players[0].Send({'action': 'initialplayerturn', 'playernum': 1})
 			self.players[1].Send({'action': 'initialplayerturn', 'playernum': 1})
 
-
 	def shuffle(self): #Creates deck
 	#Imports cards and create a shuffled deck
 		for x in range(1, 14):

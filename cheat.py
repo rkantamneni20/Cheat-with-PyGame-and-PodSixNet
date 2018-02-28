@@ -473,7 +473,6 @@ class Listener(ConnectionListener):
 						self.screen.blit(self.callblufftxt, (165,475))
 						self.screen.blit(self.proceedtxt, (770, 475))
 
-
 					else:
 						self.screen.blit(self.waitingforturntxt,(400,400))
 
