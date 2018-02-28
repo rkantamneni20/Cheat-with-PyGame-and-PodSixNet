@@ -124,10 +124,13 @@ class MyServer(Server):
 			self.players[1].Send({'action': 'initialplayerturn', 'playernum': 1})
 			print('Spades 1 in 1')
 
-		if "spades1" in self.player2keylist:
+		elif "spades1" in self.player2keylist:
 			self.players[1].Send({'action': 'initialplayerturn', 'playernum': 2})
 			self.players[0].Send({'action': 'initialplayerturn', 'playernum': 2})
 			print('Spades 1 in 2')
+		else: #It's player 1's turn if it is not found
+			self.players[0].Send({'action': 'initialplayerturn', 'playernum': 1})
+			self.players[1].Send({'action': 'initialplayerturn', 'playernum': 1})
 
 
 	def shuffle(self): #Creates deck
@@ -148,6 +151,8 @@ class MyServer(Server):
 
 		self.suiteranks =  list(self.dicdeck.keys())#Takes all names and creates a list
 		random.shuffle(self.suiteranks)
+
+		numberofcardsdealt=random.choice([26, 24, 22, 20, 18])
 
 		for x in range(26):
 			self.player1keylist.append(self.suiteranks[x])
@@ -176,6 +181,6 @@ adresse = 'localhost'
 # 	print ("e.g.", sys.argv[0], "localhost:31425")
 # else:
 #host, port = sys.argv[1].split(":")
-s = MyServer(localaddr=('localhost', int(9999)))
+s = MyServer(localaddr=('10.24.10.137', int(9999)))
 s.launch()
 
